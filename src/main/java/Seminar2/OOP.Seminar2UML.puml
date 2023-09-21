@@ -1,0 +1,84 @@
+@startuml
+class Seminar2.snake.Anaconda {
++ String sound()
++ int getRunSpeed()
++ int runSpeed()
++ String toString()
++ int getSwimSpeed()
++ String getSound()
+}
+class Seminar2.amphibian.Frog {
++ String sound()
++ int getRunSpeed()
++ int runSpeed()
++ String toString()
++ int getSwimSpeed()
++ String getSound()
+}
+class Seminar2.Main {
++ {static} void main(String[])
+}
+abstract class Seminar2.base.Amphibian {
+}
+interface Seminar2.SwimSpeed {
+~ int getSwimSpeed()
+}
+class Seminar2.Terrarium {
+- List<Animal> terrarium
++ Terrarium addTerrarium(Animal)
++ String toString()
+- List<SwimSpeed> swimSpeeds()
++ SwimSpeed swimSpeedsChampion()
+- List<Soundable> soundables()
++ String sounds()
+- List<RunSpeed> runSpeeds()
++ RunSpeed runSpeedChampion()
+}
+abstract class Seminar2.base.Snake {
+}
+class Seminar2.snake.Viper {
++ String sound()
++ int getRunSpeed()
++ int runSpeed()
++ String toString()
++ int getSwimSpeed()
++ String getSound()
+}
+interface Seminar2.RunSpeed {
+~ int runSpeed()
+}
+abstract class Seminar2.base.Animal {
+# String name
++ {abstract}String sound()
++ String toString()
+}
+interface Seminar2.Soundable {
+~ String getSound()
+}
+class Seminar2.amphibian.Triton {
++ String sound()
++ int getRunSpeed()
++ int runSpeed()
++ String toString()
++ int getSwimSpeed()
+}
+
+
+Seminar2.SwimSpeed <|.. Seminar2.snake.Anaconda
+Seminar2.Soundable <|.. Seminar2.snake.Anaconda
+Seminar2.RunSpeed <|.. Seminar2.snake.Anaconda
+Seminar2.base.Animal <|-- Seminar2.snake.Anaconda
+Seminar2.SwimSpeed <|.. Seminar2.amphibian.Frog
+Seminar2.Soundable <|.. Seminar2.amphibian.Frog
+Seminar2.RunSpeed <|.. Seminar2.amphibian.Frog
+Seminar2.base.Amphibian <|-- Seminar2.amphibian.Frog
+Seminar2.base.Animal <|-- Seminar2.base.Amphibian
+Seminar2.base.Animal <|-- Seminar2.base.Snake
+Seminar2.SwimSpeed <|.. Seminar2.snake.Viper
+Seminar2.Soundable <|.. Seminar2.snake.Viper
+Seminar2.RunSpeed <|.. Seminar2.snake.Viper
+Seminar2.base.Snake <|-- Seminar2.snake.Viper
+Seminar2.SwimSpeed <|.. Seminar2.amphibian.Triton
+Seminar2.RunSpeed <|.. Seminar2.amphibian.Triton
+Seminar2.base.Amphibian <|-- Seminar2.amphibian.Triton
+@enduml
