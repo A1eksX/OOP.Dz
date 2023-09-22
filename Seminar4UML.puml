@@ -1,0 +1,101 @@
+@startuml
+class Seminar4.weapons.rangedWeapon.CrossBow {
++ int damage()
++ int distance()
++ String toString()
+}
+interface Seminar4.weapons.meleeWeapon.Melee {
+}
+interface Seminar4.weapons.Weapon {
+~ int damage()
+}
+class Seminar4.weapons.rangedWeapon.Bow {
++ int damage()
++ int distance()
++ String toString()
+}
+class Seminar4.Armor.HeavyArmor {
++ int protection()
++ String toString()
+}
+interface Seminar4.Armor.Armor {
+~ int protection()
+}
+class Seminar4.warriors.Infantryman {
++ String toString()
++ int damage()
++ int protection()
+}
+class Seminar4.warriors.Archer {
++ int distance()
++ String toString()
++ int damage()
++ int protection()
+}
+class Seminar4.Battle {
+- Warrior w1
+- Warrior w2
++ void fight()
+}
+class Seminar4.Team {
+~ List<T> team
++ void add(T)
++ Iterator<T> iterator()
++ int getTeamHealth()
++ int maxAttackDistance()
++ int getTeamAttack()
++ int getMinArmor()
++ String toString()
+}
+abstract class Seminar4.warriors.Warrior {
+- String name
+- int healthPoint
+- W weapon
+- A armor
++ A getArmor()
++ void setArmor(A)
++ String getName()
++ int getHealthPoint()
++ W getWeapon()
++ void setHealthPoint(int)
++ void setWeapon(W)
++ int hit()
++ int def()
++ int defShield()
++ void rediceHealth(int,int)
++ String toString()
+}
+interface Seminar4.weapons.rangedWeapon.Ranged {
+~ int distance()
+}
+class Seminar4.Armor.LeatherArmor {
++ int protection()
++ String toString()
+}
+class Seminar4.weapons.meleeWeapon.Sword {
++ int damage()
++ String toString()
+}
+class Seminar4.weapons.meleeWeapon.Axe {
++ int damage()
++ String toString()
+}
+class Seminar4.Main {
++ {static} void main(String[])
+}
+
+
+Seminar4.weapons.rangedWeapon.Ranged <|.. Seminar4.weapons.rangedWeapon.CrossBow
+Seminar4.weapons.Weapon <|-- Seminar4.weapons.meleeWeapon.Melee
+Seminar4.weapons.rangedWeapon.Ranged <|.. Seminar4.weapons.rangedWeapon.Bow
+Seminar4.Armor.Armor <|.. Seminar4.Armor.HeavyArmor
+Seminar4.warriors.Warrior <|-- Seminar4.warriors.Infantryman
+Seminar4.warriors.Warrior <|-- Seminar4.warriors.Archer
+Seminar4.Iterable <|.. Seminar4.Team
+Seminar4.weapons.Weapon <|.. Seminar4.warriors.Warrior
+Seminar4.Armor.Armor <|.. Seminar4.warriors.Warrior
+Seminar4.weapons.Weapon <|-- Seminar4.weapons.rangedWeapon.Ranged
+Seminar4.Armor.Armor <|.. Seminar4.Armor.LeatherArmor
+Seminar4.weapons.meleeWeapon.Melee <|.. Seminar4.weapons.meleeWeapon.Sword
+Seminar4.weapons.meleeWeapon.Melee <|.. Seminar4.weapons.meleeWeapon.Axe
+@enduml
